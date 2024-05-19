@@ -19,7 +19,6 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
     widget.onSelectAnswer(answer);
     setState(() {
       currentQuestionIndex++;
-      
     });
   }
 
@@ -45,7 +44,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
             const SizedBox(
               height: 40,
             ),
-            ...currentQuestion.shuffleAnswers().map((answer) {
+            ...currentQuestion.getShuffledAnswers().map((answer) {
               return CustomAnswerButton(
                 answerText: answer,
                 onPressed: () {
