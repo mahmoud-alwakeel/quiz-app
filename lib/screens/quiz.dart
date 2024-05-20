@@ -41,7 +41,7 @@ class _QuizState extends State<Quiz> {
           color: Colors.purple,
           child: activeScreen == 'start-screen'
               ? StartScreen(startQuiz: switchScreen)
-              : activeScreen == 'result-screen' ? ResultsScreen(choosenAnswers: selectedAnswersList,) 
+              : activeScreen == 'result-screen' ? ResultsScreen(choosenAnswers: selectedAnswersList, resetQuiz: switchScreen,) 
               : QuestionsScreen(onSelectAnswer: chooseAnswer,) ,
         ),
       ),
