@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:quiz_app/data/questions.dart';
 import 'package:quiz_app/widgets/questions_summary.dart';
 
@@ -8,7 +9,7 @@ class ResultsScreen extends StatelessWidget {
   final List<String> choosenAnswers;
   final void Function() resetQuiz;
 
-  List<Map<String, Object>> getSummaryData() {
+  List<Map<String, Object>> get summaryData {
     final List<Map<String, Object>> summary = [];
     for (int i = 0; i < choosenAnswers.length; i++) {
       summary.add({
@@ -23,18 +24,15 @@ class ResultsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final summaryData = getSummaryData();
     final totalAnswerNum = questions.length;
-    final correctAnswerNum = summaryData.where((data) {
-      return data['user_answer'] == data['correct_answer'];
-    }).length;
+    final correctAnswerNum = summaryData.where((data) => data['user_answer'] == data['correct_answer']).length;
     return Container(
       width: double.infinity,
       margin: const EdgeInsets.all(20),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('You answered $correctAnswerNum right out of $totalAnswerNum', style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w700),),
+          Text('You answered $correctAnswerNum question right out of $totalAnswerNum correct!', textAlign: TextAlign.center ,style: GoogleFonts.lato(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w700),),
           const SizedBox(height: 20,),
           QuestionsSummary(summaryData: summaryData,),
           const SizedBox(height: 20,),

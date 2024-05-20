@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class QuestionsSummary extends StatelessWidget {
   const QuestionsSummary({super.key, required this.summaryData});
@@ -29,7 +30,7 @@ class QuestionsSummary extends StatelessWidget {
                           children: [
                             Text(
                               data['question'] as String,
-                              style: const TextStyle(
+                              style: GoogleFonts.lato(
                                   color: Colors.white, fontSize: 16, fontWeight: FontWeight.w700),
                             ),
                             const SizedBox(
